@@ -1,0 +1,412 @@
+/* 
+ * 💖 FEUILLE DE STYLE FÉMININE ET CLASSE
+ * Design élégant, couleurs douces, animations raffinées
+ */
+
+/* ===== VARIABLES DE COULEURS FÉMININES ===== */
+:root {
+    --rose-principal: #e91e63;
+    --rose-doux: #f8bbd9;
+    --rose-pale: #fce4ec;
+    --violet-doux: #9c27b0;
+    --violet-pale: #e1bee7;
+    --or-clair: #fff8e1;
+    --beige-creme: #fdf6f0;
+    --blanc-perle: #fefefe;
+    --texte-charme: #5d4037;
+    --texte-doux: #8d6e63;
+    --ombre-douce: 0 8px 32px rgba(233, 30, 99, 0.1);
+    --ombre-portee: 0 12px 40px rgba(156, 39, 176, 0.15);
+}
+
+/* ===== STYLES GÉNÉRAUX FÉMININS ===== */
+body {
+    background: linear-gradient(135deg, var(--beige-creme) 0%, var(--or-clair) 100%);
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: var(--texte-charme);
+    min-height: 100vh;
+}
+
+/* ===== CONTENEUR PRINCIPAL DU PANIER ===== */
+.shopping-card-container {
+    padding: 3rem 2rem;
+    background: transparent;
+}
+
+/* ===== SECTION PRIX TOTAL ÉLÉGANTE ===== */
+.total-price {
+    background: linear-gradient(135deg, var(--rose-principal), var(--violet-doux));
+    color: var(--blanc-perle);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    box-shadow: var(--ombre-portee);
+    position: relative;
+    overflow: hidden;
+}
+
+.total-price::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: brillance 3s ease-in-out infinite;
+}
+
+@keyframes brillance {
+    0%, 100% { transform: rotate(45deg) translateX(-100%); }
+    50% { transform: rotate(45deg) translateX(100%); }
+}
+
+/* ===== GRILLE DE PRODUITS ÉLÉGANTE ===== */
+.list-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+/* ===== CARTES DE PRODUITS RAFFINÉES ===== */
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--ombre-douce);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    background: var(--blanc-perle);
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--rose-principal), var(--violet-doux));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--ombre-portee);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.card-body {
+    padding: 2rem;
+    background: linear-gradient(180deg, var(--blanc-perle) 0%, var(--rose-pale) 100%);
+}
+
+/* ===== TITRES ET TEXTES ÉLÉGANTS ===== */
+.card-title {
+    color: var(--texte-charme);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--rose-principal), transparent);
+    transition: width 0.3s ease;
+}
+
+.card:hover .card-title::after {
+    width: 100%;
+}
+
+.card-text {
+    color: var(--texte-doux);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.unit-price {
+    color: var(--rose-principal);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--rose-principal), var(--violet-doux));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== CONTROLES DE QUANTITÉ CHICS ===== */
+.card-body > div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--rose-pale);
+    padding: 0.8rem;
+    border-radius: 15px;
+    border: 1px solid var(--rose-doux);
+}
+
+/* ===== ICÔNES STYLISÉES ===== */
+.fa-plus-circle, 
+.fa-minus-circle,
+.fa-trash-alt,
+.fa-heart {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--blanc-perle);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== BOUTON PLUS - VERT DOUX ===== */
+.fa-plus-circle {
+    color: #4caf50;
+    border: 2px solid #4caf50;
+}
+
+.fa-plus-circle:hover {
+    background: #4caf50;
+    color: white;
+    transform: scale(1.2) rotate(90deg);
+}
+
+/* ===== BOUTON MOINS - ROSE DOUX ===== */
+.fa-minus-circle {
+    color: var(--rose-principal);
+    border: 2px solid var(--rose-principal);
+}
+
+.fa-minus-circle:hover {
+    background: var(--rose-principal);
+    color: white;
+    transform: scale(1.2) rotate(-90deg);
+}
+
+/* ===== BOUTON SUPPRIMER - ORANGE DOUX ===== */
+.fa-trash-alt {
+    color: #ff9800;
+    border: 2px solid #ff9800;
+}
+
+.fa-trash-alt:hover {
+    background: #ff9800;
+    color: white;
+    transform: scale(1.2) rotate(15deg);
+}
+
+/* ===== BOUTON CŒUR - STYLES SPÉCIAUX ===== */
+.fa-heart {
+    color: var(--violet-doux);
+    border: 2px solid var(--violet-doux);
+    position: relative;
+    overflow: hidden;
+}
+
+.fa-heart:hover {
+    transform: scale(1.3);
+    color: var(--rose-principal);
+    border-color: var(--rose-principal);
+}
+
+.fa-heart.aime {
+    background: var(--rose-principal);
+    color: white;
+    border-color: var(--rose-principal);
+    animation: pulseCoeur 2s infinite;
+}
+
+@keyframes pulseCoeur {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+        transform: scale(1.1);
+    }
+}
+
+/* ===== AFFICHAGE QUANTITÉ ÉLÉGANT ===== */
+.quantity {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--texte-charme);
+    min-width: 40px;
+    text-align: center;
+    background: var(--blanc-perle);
+    padding: 0.3rem 0.8rem;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== MESSAGE PANIER VIDE TRÈS ÉLÉGANT ===== */
+.message-panier-vide {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--blanc-perle), var(--rose-pale));
+    border: 2px dashed var(--rose-doux);
+    border-radius: 25px;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: var(--ombre-douce);
+}
+
+.contenu-panier-vide {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.icone-panier-vide {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.titre-panier-vide {
+    color: var(--texte-charme);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.texte-panier-vide {
+    color: var(--texte-doux);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.bouton-continuer-achats {
+    background: linear-gradient(135deg, var(--rose-principal), var(--violet-doux));
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bouton-continuer-achats:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+    background: linear-gradient(135deg, var(--violet-doux), var(--rose-principal));
+}
+
+/* ===== ANIMATIONS D'ENTRÉE RAFFINÉES ===== */
+@keyframes entreeDouce {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card-body {
+    animation: entreeDouce 0.8s ease forwards;
+}
+
+.card-body:nth-child(1) { animation-delay: 0.1s; }
+.card-body:nth-child(2) { animation-delay: 0.2s; }
+.card-body:nth-child(3) { animation-delay: 0.3s; }
+
+/* ===== DESIGN RESPONSIVE ÉLÉGANT ===== */
+@media (max-width: 768px) {
+    .shopping-card-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .list-products {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .total-price {
+        font-size: 1.4rem;
+        padding: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .fa-plus-circle, 
+    .fa-minus-circle,
+    .fa-trash-alt,
+    .fa-heart {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+}
+
+/* ===== ÉTATS DE FOCUS ACCESSIBLES ===== */
+.fa-plus-circle:focus,
+.fa-minus-circle:focus,
+.fa-trash-alt:focus,
+.fa-heart:focus {
+    outline: 2px solid var(--rose-principal);
+    outline-offset: 2px;
+}
+
+/* ===== BARRE DE NAVIGATION PERSONNALISÉE ===== */
+.navbar {
+    background: linear-gradient(135deg, var(--blanc-perle), var(--rose-pale)) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--rose-principal) !important;
+    font-size: 1.5rem;
+}
+
+/* Fin du CSS féminin et classe - Design exceptionnel ! 🎀 */
